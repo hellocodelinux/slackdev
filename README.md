@@ -5,6 +5,19 @@
 > ⚠️ **Important:**  
 > You must run this script with `sudo` because it is required for mounting and unmounting filesystems (`mount`/`umount`).
 
+---
+
+## 🛡️ 100% Safe for Your System
+
+Everything you create, install, or delete inside SlackDev **does not affect or modify your original system**.  
+Thanks to the overlay filesystem, all changes are stored in a temporary upper layer and your real system remains untouched at all times.
+
+- **No risk:** The base system is always mounted read-only as the lower layer.
+- **Feel free to use root:** You can safely use root privileges inside SlackDev. Any destructive or experimental action will only affect the overlay, never your real installation.
+- **Relax:** When you exit and clean up, your original system is exactly as it was before.
+
+---
+
 ## Features 🚀
 
 - **Overlay Filesystem:** All changes are stored in a writable upper layer located in `/tmp/slackdev_overlay_*`, keeping your base system intact.
@@ -88,7 +101,7 @@ bash slackdev.sh umount
 To manually remove temporary overlay directories (if needed):
 
 ```bash
-sudo rm -rf /slackdev_overlay_* /tmp/slackdev_overlay_*
+sudo rm -rf /tmp/slackdev_overlay_*
 ```
 
 ## Limitations ⚠️
